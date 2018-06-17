@@ -23,7 +23,7 @@ function createListElement() {
 	var li = document.createElement("li");
 	var newButton = document.createElement("button");
 	newButton.className = "delete";
-	li.appendChild(document.createTextNode(input.value));
+	li.appendChild(document.createTextNode(input.value.padStart(10)));
 	newButton.appendChild(document.createTextNode("x"));
 	ul.appendChild(li);
 	li.insertBefore(newButton, li.childNodes[0]);
