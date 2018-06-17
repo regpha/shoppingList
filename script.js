@@ -2,10 +2,6 @@ var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 var deleteBox = document.getElementsByClassName("delete");
-// var liItems = document.querySelectorAll("li");
-var h1 = document.querySelector("h1");
-
-
 
 function inputLength() {
 	return input.value.length;
@@ -13,10 +9,6 @@ function inputLength() {
 
 function classLength(){
 	return event.target.classList.length;
-}
-
-function buttonsLength(){
-
 }
 
 function createListElement() {
