@@ -2,7 +2,10 @@ var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 var deleteBox = document.getElementsByClassName("delete");
+// var liItems = document.querySelectorAll("li");
 var h1 = document.querySelector("h1");
+
+
 
 function inputLength() {
 	return input.value.length;
@@ -12,10 +15,14 @@ function classLength(){
 	return event.target.classList.length;
 }
 
+function buttonsLength(){
+
+}
+
 function createListElement() {
 	var li = document.createElement("li");
 	var newButton = document.createElement("button");
-	newButton.setAttribute("class", "delete");
+	newButton.className = "delete";
 	li.appendChild(document.createTextNode(input.value));
 	newButton.appendChild(document.createTextNode("x"));
 	ul.appendChild(li);
@@ -36,15 +43,13 @@ function addListAfterKeypress(event) {
 }
 
 function lineThroughItem (event){
-	if (classLength() === 0){
+		if(event.target.classList.contains("delete")){
+			event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+		}	else	if (classLength() === 0){
 		event.target.className = "done";
 	} else {
 		event.target.className = "";
 	}
-}
-
-function deleteItem(){
-	event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 }
 
 
@@ -53,7 +58,3 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keypress", addListAfterKeypress);
 
 ul.addEventListener("click", lineThroughItem);
-
-for (var i = 0; i < deleteBox.length; i++) {
-    deleteBox[i].addEventListener('click', deleteItem);
-}
